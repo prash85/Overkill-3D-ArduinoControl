@@ -5,7 +5,7 @@
 > ## Project Summary 
 > An Arduino based controller board which will interface with raspberry pi through USB port and control following peripherals
 > - 8x Relays
-> - 2x Channels for 5050 LEDs
+> - 2x PWM Channels for 5050 LEDs 
 > - 2x Humidity and Temperature Sensors (for control and enclosure) using DH11
 > - 2x Smoke Sensors Q135 (one installed in enclosure and one in exhaust port)
  
@@ -32,19 +32,18 @@
  Pin 16       | PB5            | Relay_8
  Pin 17       | 3V3            | 
  Pin 18       | AREF           |
- Pin 19       | PC0            | 
- Pin 20       | PC1            |
- Pin 21       | PC2            |
- Pin 22       | PC3            |
- Pin 23       | PC4            |
- Pin 24       | PC5            |
+ Pin 19       | PC0            | DH22 Temp and Humidity Sensor (Control Board)
+ Pin 20       | PC1            | DH22 Temp and Humidity Sensor (Enclosure)
+ Pin 21       | PC2            | MQ125 Smoke Sensor (Control Board)
+ Pin 22       | PC3            | MQ125 Smoke Sensor (Enclosure)
+ Pin 23       | PC4            | Push Button (LED Test)
+ Pin 24       | PC5            | Push Button (RELAY Test)
  Pin 25       | ADC6           |
  Pin 26       | ADC7           |
  Pin 27       | +5VDC          |
  Pin 28       | PC6 (RESET)    |
  Pin 29       | GND            |
  Pin 30       | VIN            |
-
 
 
 > ## Serial via USB configuration
