@@ -1,4 +1,4 @@
-> Ctrl+Shift+V to see dynamic preview
+> Ctrl+Shift+V to see dynamic preview in VScode
 
 # ARDUINO "OVERKILL" CONTROL BOARD
 
