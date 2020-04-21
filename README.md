@@ -47,7 +47,7 @@
 
 
 > ## Serial via USB configuration
-> 
+> create a parser class
 
 
 > ## PWM Pin Configuration

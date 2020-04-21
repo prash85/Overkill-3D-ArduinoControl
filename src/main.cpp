@@ -23,21 +23,3 @@ void loop() {
     }
   }
 }
-
-
-/*
-void loop() {
-  // put your main code here, to run repeatedly:
-  if(Serial.available() > 0){
-    incoming = Serial.readString();
-    Serial.print(incoming);
-    if(incoming == "1"){
-      digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    }
-    else{
-      digitalWrite(LED_BUILTIN, LOW);   // turn the LED on (HIGH is the voltage level)
-    }
- }
-}
-
-*/
