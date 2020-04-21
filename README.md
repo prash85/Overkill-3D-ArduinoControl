@@ -50,6 +50,13 @@
 > create a parser class
 
 
+> Serial Frame Constructor
+
+> Data Frame from Computer to Arduino
+> Commands Turn on LED power, Turn On 
+
+
+
 > ## PWM Pin Configuration
 > PWM write example -> val = analogWrite(ledPin, val /4);
 > AnalogRead values go from 0 to 1023. analogWrite values from 0 to 255. Available PWM pins -> 3, 5, 6, 9, 10, 11
