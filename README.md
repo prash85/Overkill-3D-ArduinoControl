@@ -1,6 +1,7 @@
 > Ctrl+Shift+V to see dynamic preview in VScode
+> NOTE: This is work in progress. Do not clone it at this stage.
 
-# ARDUINO "OVERKILL" CONTROL BOARD
+# OVERKILL-3D ARDUINO CONTROL BOARD
 
 > ## Project Summary 
 > An Arduino based controller board which will interface with raspberry pi through USB port and control following peripherals
