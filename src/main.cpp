@@ -18,11 +18,17 @@
 #include <Arduino.h>
 #include <string.h>
 #include "npnMOSFET.h"
+#include <DHT.h>
 
 String incoming = "";
 
+
 void setup() {
-  // put your setup code here, to run once:
+  // Arduino Pin definatios. Update this pin defination code based on your circuit
+  #define RELAY_ENC_FAN 10; // Arduino pin connected to relay that switch the enclosure fan ON/OFF
+
+  // Setup pin mode to setup pullup resistors
+  pinMode(RELAY_ENC_FAN, OUTPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(19200);
   Serial.println("Hello World");

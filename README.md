@@ -8,11 +8,10 @@
 
 > An Arduino based controller board which can serially interface with PC devices (computer / raspberry pi) via USB port to receive instructions or to transmit sensor / status data.
 
-
 > Board BOM
 >
 > - Arduino Nano
-> - 8x Relays
+> - 8x Relays (RELAY_ENC_FAN | SSR_PRINTER_POWER | TBA | TBA | TBA | TBA | TBA | TBA)
 > - 2x 5050 LEDs Strips
 > - 2x Humidity and Temperature Sensors (for control and enclosure) using DTH22
 > - 2x Smoke Sensors Q135 (one installed in enclosure and one in exhaust port)
@@ -22,7 +21,7 @@
 
 > ![Arduino Nano Pinout](images/image2.png)
 
- Mega328 Pins | Pin Defination | Assigned Peripheral 
+ Mega328 Pins | Pin Defination | Assigned Peripheral
  ------------ | -------------- | -------------------
  Pin 01       | PD1 / TxD      | Relay_1
  Pin 02       | PD0 / RxD      | Relay_2
@@ -40,7 +39,7 @@
  Pin 14       | PB3 (PWM)      | CH1_GREEN
  Pin 15       | PB4 (PWM)      | Relay_7  
  Pin 16       | PB5            | Relay_8
- Pin 17       | 3V3            | 
+ Pin 17       | 3V3            |
  Pin 18       | AREF           |
  Pin 19       | PC0            | DH22 Temp and Humidity Sensor (Control Board)
  Pin 20       | PC1            | DH22 Temp and Humidity Sensor (Enclosure)
@@ -76,11 +75,20 @@
 
 ## MOSFET Control Circuit
 
-> For better control, devices such as LED and FAN can be controller by PWM channels of the microcontroller via power MOSFETs  such as NPN MOS TIP120. These MOSFETs have higher current carrying capacity along with higher voltage rating. 
+> A relay can provide simple On/Off control however devices like LED and FAN require a "control" singnal to regulate brightness or speed. This can be achieved by using PWM channels of the microcontroller connected to gate pin of power MOSFET which in this case will be NPN TIP120. These MOSFETs have higher current carrying capacity along with higher voltage rating.
+
+### MOSFET 5050 RGB LED Control Circuit
 
 > In this circuit we will use 3x TIP120 (NPN) MOSFET per LED Strip. Each MOSFET will control the RGB line individually. To keep thing relatively simple, we will implament this circuit with the asumption that at 0 duty cycle there will be no current lekage from these MOSFETs and the device will come to complete shutdown.
-
 > ![Sample Circuit](images/mosfet_circuit.png)
+
+## Enclosure FAN control (with color)
+
+> A cheap Chinese manufactured 120x120mm DC 12V Fan (with 15 LED) will be used as enclosure exhaust fan. Sample Circuit shown below:
+> ![Sample Circuit](images/FAN_Circuit.jpg)
+> credit: https://www.techpowerup.com/forums/threads/so-you-want-pwm-control-of-your-new-cpu-fan.107135/
+
+
 
 > ## DH11 Humidity and Temperature Sensor Setup
 
