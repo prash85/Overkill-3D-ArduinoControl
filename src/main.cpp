@@ -17,35 +17,27 @@
 
 #include <Arduino.h>
 #include <string.h>
-#include "npnMOSFET.h"
 #include <DHT.h>
 
-String incoming = "";
+    const byte pin_ch1_red = 10; // Channel 1 , Red Pin set in output mode
+    const char pin_ch1_green = PB2; // Channel 1 , green Pin set in output mode
+    const byte pin_ch1_blue = PB3; // Channel 1 , blue Pin set in output mode
+    
+    cont byte pin_ch2_red = PD3; // Channel 2 , Red Pin set in output mode
+    cont byte pin_ch2_green = PD5; // Channel 2 , green Pin set in output mode
+    cont byte pin_ch2_blue = PD7; // Channel 2 , blue Pin set in output mode
 
+    cont byte pin_ch3_fan = 3; // Channel 2 , blue Pin set in output mode
 
 void setup() {
-  // Arduino Pin definatios. Update this pin defination code based on your circuit
-  #define RELAY_ENC_FAN 10; // Arduino pin connected to relay that switch the enclosure fan ON/OFF
+ 
+ 
 
-  // Setup pin mode to setup pullup resistors
-  pinMode(RELAY_ENC_FAN, OUTPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
+  // Setup Serial Port
   Serial.begin(19200);
   Serial.println("Hello World");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  if(Serial.available() > 0) {
-    incoming = Serial.readString();
-    
-    if(incoming == "1"){
-      digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-      Serial.print(incoming);
-    }
-    else{
-      digitalWrite(LED_BUILTIN, LOW);   // turn the LED on (HIGH is the voltage level)
-     digitalWrite(LED_BUILTIN, LOW);
-    }
-  }
+ 
 }
