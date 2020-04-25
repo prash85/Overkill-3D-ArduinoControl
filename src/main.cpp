@@ -17,7 +17,7 @@
 
 #include <Arduino.h>
 #include <string.h>
-#include "ledstrip5050.h"
+#include "npnMOSFET.h"
 
 String incoming = "";
 

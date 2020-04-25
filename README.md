@@ -1,18 +1,26 @@
-> Ctrl+Shift+V to see dynamic preview in VScode
+## Ctrl+Shift+V to see dynamic preview in VScode
 
-> NOTE: This is work in progress. Do not clone it at this stage.
+# Important NOTE: This is work in progress. Do not clone it at this stage.
 
 # OVERKILL-3D ARDUINO CONTROL BOARD
 
-> ## Project Summary 
-> An Arduino based controller board which will interface with raspberry pi through USB port and control following peripherals
+## Project Summary
+
+> An Arduino based controller board which can serially interface with PC devices (computer / raspberry pi) via USB port to receive instructions or to transmit sensor / status data.
+
+
+> Board BOM
+>
+> - Arduino Nano
 > - 8x Relays
-> - 2x PWM Channels for 5050 LEDs 
-> - 2x Humidity and Temperature Sensors (for control and enclosure) using DH11
+> - 2x 5050 LEDs Strips
+> - 2x Humidity and Temperature Sensors (for control and enclosure) using DTH22
 > - 2x Smoke Sensors Q135 (one installed in enclosure and one in exhaust port)
- 
+> - 2x Toggle Buttons for Digital Inputs
+
 > ## Pin Assignment
-> ![alt text](images/image2.png)
+
+> ![Arduino Nano Pinout](images/image2.png)
 
  Mega328 Pins | Pin Defination | Assigned Peripheral 
  ------------ | -------------- | -------------------
@@ -49,7 +57,8 @@
 
 
 > ## Serial via USB configuration
-> create a parser class
+
+> The serial communication with done using a "G-Code" like syntaxes where the first letter will refer to the 
 
 
 > Serial Frame Constructor
@@ -59,12 +68,22 @@
 
 
 
-> ## PWM Pin Configuration
+## PWM Pin Configuration
+
 > PWM write example -> val = analogWrite(ledPin, val /4);
 > AnalogRead values go from 0 to 1023. analogWrite values from 0 to 255. Available PWM pins -> 3, 5, 6, 9, 10, 11
 
 
+## MOSFET Control Circuit
+
+> For better control, devices such as LED and FAN can be controller by PWM channels of the microcontroller via power MOSFETs  such as NPN MOS TIP120. These MOSFETs have higher current carrying capacity along with higher voltage rating. 
+
+> In this circuit we will use 3x TIP120 (NPN) MOSFET per LED Strip. Each MOSFET will control the RGB line individually. To keep thing relatively simple, we will implament this circuit with the asumption that at 0 duty cycle there will be no current lekage from these MOSFETs and the device will come to complete shutdown.
+
+> ![Sample Circuit](images/mosfet_circuit.png)
+
 > ## DH11 Humidity and Temperature Sensor Setup
+
 > [Youtube Video 1](https://www.youtube.com/watch?v=nssXWNYdGT8)
 > 
 ## MQ135 Air Quality Sensor Setup
